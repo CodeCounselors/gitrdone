@@ -12,6 +12,7 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<link rel="stylesheet" href="css/custom.css">
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -24,10 +25,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<h1>Outline</h1>
-				</section>
-				<section>Slide 2</section>
+				<section data-markdown="outline.md" data-separator="^SLIDE$" data-separator-vertical="^VSLIDE" />
 			</div>
 		</div>
 
@@ -39,9 +37,31 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true, // Push each slide change to the browser history (handly when developing)
+				center: true, // Vertical centering
+				markdown: {
+
+				},
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1200,
+				height: 900,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.75,
+				maxScale: 4.0,
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/external/external.js', condition: function() {
+							return !!document.querySelector( '[data-external],[data-external-replace]' )
+						}
+					},
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]

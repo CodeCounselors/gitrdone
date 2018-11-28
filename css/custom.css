@@ -12,9 +12,19 @@
 }
 
 ol {
-  width: 90%;
+  /* width: 90%; */
 }
 
+.blue { color: deepskyblue !important;}
+.red { color: red !important;}
+.green { color: lawngreen !important;}
+.orange { color: orange !important;}
+.magenta { color: magenta !important;}
+.warning { color: hotpink !important;}
+
+.comparison {
+  background: white;
+}
 .comparison > span {
   color: red;
   font-size: 200px;
@@ -26,7 +36,7 @@ ol {
 }
 .comparison > img {
   margin: 20px;
-  width: 33%;
+  width: 30%;
   height: 100%;
   vertical-align: middle !important;
   box-shadow: none !important;

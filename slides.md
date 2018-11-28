@@ -1,16 +1,15 @@
-## Git R' Done
-A wondeful addition
+# Git R' Done
 note:
 - poll audience
 - goal: learn and apply at least one new thing
 
 SLIDE
-## Basics
+# Basics
 
 VSLIDE <!-- .element: style="background: white" -->
 <div class="comparison">
   <img src="img/Git-Logo-1788C.png" class="fragment" data-fragment-index="1" >
-  <span class="fragment" data-fragment-index="3" >!=</span> 
+  <span class="fragment" data-fragment-index="3" >!==</span>
   <img src="img/Octocat.jpg" class="fragment" data-fragment-index="2" >
 </div>
 
@@ -19,14 +18,14 @@ note:
 - Clarify the difference.  GH adds a ton of features on top of Git
 
 VSLIDE
-## Git Characteristics
+# Git Characteristics
 <p class=stretch><img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/07-appendix/03-from-subversion-to-git/centralized-vs-distributed.png"></p>
 note:
 - distributed, remote
 - Not a talk about comparing SCM systems but git was a bit of a game changer
 
 VSLIDE
-## Tools?
+# Tools?
 - Terminal ([Oh My ZSH](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet#git), [Oh My Bash](https://github.com/ohmybash/oh-my-bash))
 - Git Clients (SourceTree, Tower, IDEs, etc)
 - OS Integrations (TortoiseGit)
@@ -41,10 +40,21 @@ note:
 
 
 SLIDE
-## Let's Git Started
+# Let's Git Started
 
 VSLIDE
-## git clone
+# Install Git
+- https://git-scm.com/download or package manager of your choice
+- Basic Setup https://help.github.com/articles/set-up-git/
+  - `git config --global user.name "John Doe"` <!-- .element: class="git-command" -->
+  - `git config --global user.email "email@example.com"` <!-- .element: class="git-command" -->
+  - `git config --global --list` <!-- .element: class="git-command" -->
+- Github Authentication (HTTPS or SSH)
+  - https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git
+note:
+
+VSLIDE
+# git clone
 <!-- .element: fragment="file" -->
 1. cd `~/projects` <!-- .element: class="file" -->
 1. [git clone git@github.com:CodeCounselors/gitrdone.git](https://github.com/CodeCounselors/gitrdone) <!-- .element: class="git-command" -->
@@ -53,7 +63,7 @@ note:
 -
 
 VSLIDE
-## Now we modify things
+# Now we modify things
 1. Make a local change to `contrib/cposc.md` <!-- .element: class="file" -->
 1. <!-- .element: class="fragment" --> `git status` <!-- .element: class="git-command" -->
 1. <!-- .element: class="fragment" --> touch `new.txt` <!-- .element: class="file" -->
@@ -84,15 +94,19 @@ VSLIDE
 
 
 
+
 SLIDE
 # Working with Others
-1. Working from a single repository
-2. Working on open source
+1. Working with a team (cloned)
+2. Working on open source (forked)
 note:
 -
 
 VSLIDE
 # First things first (Branching)
+1. <!-- .element: class="fragment" --> `git checkout -b cposc-contrib` <!-- .element: class="git-command" -->
+ - `-b` creates the branch named `cposc-contrib`
+ - `checkout` switches to the new branch
 note:
 -
 
@@ -113,7 +127,6 @@ note:
 -
 
 
-
 SLIDE
 # Every Day Git
 1. Finding a bug in a sea of changes (blame, bisect)
@@ -121,9 +134,23 @@ SLIDE
 note:
 -
 
+VSLIDE
+## When you mess up
+1. Forgot file in commit?
+1. Staged or committed something you shouldn't have?
+
 
 SLIDE
-# Git Distrubuted/Remote Architecture
+# Resources
+1. [Git - the simple guide](http://rogerdudler.github.io/git-guide/)
+1. [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
+1. [Oh Shit Git](https://ohshitgit.com/)
+1. [Git Book (Official Docs)](https://book.git-scm.com/)
+1. [Pro Git (the book)](https://git-scm.com/book/en/v2)
+
+
+SLIDE
+# Git Distributed/Remote Architecture
 note:
 - Define some terms (use a picture) http://ndpsoftware.com/git-cheatsheet.html (Pro Git Book)
   1. remote/upstream/origin

@@ -1,25 +1,28 @@
 # Git R' Done
+### This talk
+https://codecounselors.github.io/gitrdone
+### Git Repository
+https://github.com/CodeCounselors/gitrdone
+#### Brought to you by
+<a href="http://www.codecounselor.org">Nate Good</a> / <a href="http://twitter.com/codecounselor">@codecounselor</a></small>
 note:
 - poll audience
 - goal: learn and apply at least one new thing
 
+
 SLIDE
-# Basics
-
-VSLIDE <!-- .element: style="background: white" -->
-<div class="comparison">
-  <img src="img/Git-Logo-1788C.png" class="fragment" data-fragment-index="1" >
-  <span class="fragment" data-fragment-index="3" >!==</span>
-  <img src="img/Octocat.jpg" class="fragment" data-fragment-index="2" >
+# First Things First
+<div class="comparison fragment" data-fragment-index="1">
+  <img src="img/Git-Logo-1788C.png" class="fragment" data-fragment-index="3" >
+  <span class="fragment" data-fragment-index="5" >!==</span>
+  <img src="img/Octocat.jpg" class="fragment" data-fragment-index="4" >
 </div>
-
-
 note:
 - Clarify the difference.  GH adds a ton of features on top of Git
 
 VSLIDE
 # Git Characteristics
-<p class=stretch><img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/07-appendix/03-from-subversion-to-git/centralized-vs-distributed.png"></p>
+<p class=stretch><img src="img/gitsvn.png"></p>
 note:
 - distributed, remote
 - Not a talk about comparing SCM systems but git was a bit of a game changer
@@ -30,11 +33,10 @@ VSLIDE
 - Git Clients (SourceTree, Tower, IDEs, etc)
 - OS Integrations (TortoiseGit)
 - Diff Tools (IDEs, KDiff, etc)
-
 note:
 - right how, a terminal.  
 - introduce new ones as we go; discuss briefly
-
+- learn the CLI but use tools where it makes sense (merging, staging, conflict resolution)
 
 
 
@@ -103,21 +105,34 @@ note:
 -
 
 VSLIDE
-# First things first (Branching)
+# Your own branch
 1. <!-- .element: class="fragment" --> `git checkout -b cposc-contrib` <!-- .element: class="git-command" -->
  - `-b` creates the branch named `cposc-contrib`
  - `checkout` switches to the new branch
 note:
--
+- Mention aliases here
+- Talk about -v, --v, --remote
 
 VSLIDE
-# Working locally (commit, rebase)
-  - undoing changes
+# A Tidy History (Interactive Rebase)
+1. make a few commits
+1. combine them into one
 note:
 -
 
 VSLIDE
-# Integrate your work (pull, merge vs. rebase)
+# Contribute to Project
+1. Create pull request
+note:
+-
+
+VSLIDE
+# Contribute to Open Source
+1. Setup upstream
+1. Fork Repo
+1. Setup origin to track fork
+1. Push branch
+1. Create pull request
 note:
 -
 
@@ -127,21 +142,98 @@ note:
 -
 
 
+
+
 SLIDE
 # Every Day Git
-1. Finding a bug in a sea of changes (blame, bisect)
-1. `git log`
+
+#### A Pro Git User is:
+#### <!-- .element: class="fragment blue" -->imperfect
+#### <!-- .element: class="fragment red" -->efficient
+#### <!-- .element: class="fragment green" -->careful
+#### <!-- .element: class="fragment orange" -->aware
+#### <!-- .element: class="fragment magenta" -->lazy
 note:
--
+- imperfect: how to fix mistakes
+- efficient: use aliases and tools to cut down on redundant tasks (e.g. pushing new branch)
+- careful: read the documentation (e.g reset --hard, don't just copy/paste Stack Overflow)
+- aware: There is a lot to Git, know what it can do for you
+- lazy: hooks, .gitconfig (e.g. pager), etc.
+
+SLIDE
+# When you mess up
+1. Forgot a file in commit? <!-- .element: class="fragment" -->
+  - `git commit --amend` <!-- .element: class="git-command" -->
+1. Staged or committed something you shouldn't have? <!-- .element: class="fragment" -->
+  - `git reset --soft HEAD~` <!-- .element: class="git-command" -->
+1. Something broke but you have no idea when or where? <!-- .element: class="fragment" -->
+  - `git bisect` <!-- .element: class="git-command" -->
+1. Accidentally wiped out changes you now need? <!-- .element: class="fragment" -->
+  - `git reflog` <!-- .element: class="git-command" -->
+    - (If you committed them, otherwise use a good IDE)
 
 VSLIDE
-## When you mess up
-1. Forgot file in commit?
-1. Staged or committed something you shouldn't have?
+# Amend a commit
+#### WARNING: Rewrites history <!-- .element: class="warning" -->
+#### `git commit --amend` <!-- .element: class="git-command" -->
+1. Changing a commit message at `HEAD`<!-- .element: class="git-text" -->
+2. Adding more changes to the previous commit
+----
+#### `git rebase --interactive` <!-- .element: class="git-command" -->
+1. Amending a commit farther back in the history
+2. combining, reordering, or deleting commits
+
+VSLIDE
+# Undo ... Undo!
+#### `git reset --soft HEAD~` <!-- .element: class="git-command" -->
+note:
+- "git undo" use case: stash on the branch instead of stash
+
+VSLIDE
+# Who's Fault is it?
+`git blame` <!-- .element: class="git-command" --> (annotate)
+
+(But if that doesn't help, `bisect`<!-- .element: class="git-command" --> to the rescue!)
+
+VSLIDE
+# git-bisect
+####  `binary search to find the commit that introduced a bug`
+
+1. <!-- .element: class="fragment" -->Find a commit that works as expected (e.g. `381147c`<!-- .element: class="git-text" -->)
+1. <!-- .element: class="fragment" -->`git bisect start`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git bisect bad`<!-- .element: class="git-command" --> (assuming the `HEAD`<!-- .element: class="git-text" --> is bad)
+1. <!-- .element: class="fragment" -->`git bisect good`<!-- .element: class="git-command" --> &nbsp;`381147c`<!-- .element: class="git-text" -->
+1. for each revision, execute one of: <!-- .element: class="fragment" -->
+  - `git bisect good`<!-- .element: class="git-command" -->
+  - `git bisect bad`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
+
+<!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
+
+SLIDE
+# Aliases and Functions
+
+SLIDE
+# Commit Hooks
+## (To the Rescue)
+### `gitrdone/.git/hooks` <!-- .element: class="file" -->
+
+VSLIDE
+# Decorative Hooks
+
+VSLIDE
+# Safety Hooks
+
+VSLIDE
+# Notification Hooks
+
+
 
 
 SLIDE
-# Resources
+# Questions?
+------------
+### Resources
 1. [Git - the simple guide](http://rogerdudler.github.io/git-guide/)
 1. [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
 1. [Oh Shit Git](https://ohshitgit.com/)
@@ -150,41 +242,5 @@ SLIDE
 
 
 SLIDE
-# Git Distributed/Remote Architecture
-note:
-- Define some terms (use a picture) http://ndpsoftware.com/git-cheatsheet.html (Pro Git Book)
-  1. remote/upstream/origin
-    - origin => `git remote -v` (it's an alias)
-
-
-- Git can be daunting to newcomers. If you’ve not yet used Git, or just want to learn some new tricks, then bring your laptop with Git pre-installed and follow along as we cover everything you need to know to contribute to open source projects or get that next job.
-
-To contribute to or extend open source projects, or any modern development team, you need to have a working knowledge of how to fork/merge/push to git repos. This talk will be in a tutorial format, with a live demonstration using a simple Git repo setup specifically for this talk. The audience will have the opportunity to fork the repo and follow along, including submitting their own pull request via GitHub. It will cover a wide spread of commands and their uses, including: fork, clone, branch, commit, rebase, pull, merge, push, blame, bisect, and more!
-
-
-Thoughts during flight:
-1. Intro: poll audience, goal: learn and apply at least one new thing
-1. Clone - get a project setup
-1. Git anatomy - branches; head/index/working dir
-1. Tools: learn the CLI but use tools where it makes sense (merging, staging, conflict resolution)
-1. Working individually: Add, commit, push, pull
-1. Working with a team: branch, pull request, rebase (squash), rebase (sync) vs merge
-1. Debugging: bisect, blame, grep (log -S)
-1. Contributing to open source: fork, upstreams
-1. Automate: Git hooks, aliases, .gitconfig (e.g. [pager] after latest update)
-1. Questions
-
-
-# General Flow
-1. Setup (clone) a project and start making changes on the main branch (Single User)
-2. Thats great, but almost no one works like this,  Git branches are cheap/easy so use them. (Team Development)
-  - Branch per feature/fix
-  - Managing conflicts/change (rebase vs. merge)
-3. This is CPOSC, What about open source?
-  - Fork -> origin + upstream and keeping them in sync, submitting pull request
-  - A note about open source contributing: be nice, style guides, no feature
-4. You said I'd learn some new tricks?
-  - aliases
-  - commit hooks
-  - git bisect
-  - git blame
+# Didn't make the cut
+- `grep (log -S)`

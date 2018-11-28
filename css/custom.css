@@ -1,0 +1,33 @@
+.git-command {
+  color: lime !important;
+  text-decoration: none;
+}
+
+.git-text {
+  color: orange;
+}
+
+.file {
+  color: cornflowerblue;
+}
+
+ol {
+  width: 90%;
+}
+
+.comparison > span {
+  color: red;
+  font-size: 200px;
+  height: 100%;
+  vertical-align: middle !important;
+  padding: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+.comparison > img {
+  margin: 20px;
+  width: 33%;
+  height: 100%;
+  vertical-align: middle !important;
+  box-shadow: none !important;
+}

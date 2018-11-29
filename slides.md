@@ -131,13 +131,13 @@ VSLIDE
 1. Setup upstream
 1. Fork Repo
 1. Setup origin to track fork
-1. Push branch
-1. Create pull request
 note:
 -
 
 VSLIDE
-# Publish/Review your work (push, pull request)
+# Submit your first Pull Request
+1. Push branch
+1. Create pull request
 note:
 -
 
@@ -164,13 +164,15 @@ SLIDE
 # When you mess up
 1. Forgot a file in commit? <!-- .element: class="fragment" -->
   - `git commit --amend` <!-- .element: class="git-command" -->
-1. Staged or committed something you shouldn't have? <!-- .element: class="fragment" -->
+1. Committed something you shouldn't have? <!-- .element: class="fragment" -->
   - `git reset --soft HEAD~` <!-- .element: class="git-command" -->
 1. Something broke but you have no idea when or where? <!-- .element: class="fragment" -->
   - `git bisect` <!-- .element: class="git-command" -->
 1. Accidentally wiped out changes you now need? <!-- .element: class="fragment" -->
   - `git reflog` <!-- .element: class="git-command" -->
     - (If you committed them, otherwise use a good IDE)
+note:
+- if something was staged, just use a GUI to unstage files or hunks (demo SourceTree)
 
 VSLIDE
 # Amend a commit
@@ -208,12 +210,55 @@ VSLIDE
   - `git bisect bad`<!-- .element: class="git-command" -->
 1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
 
+VSLIDE
+# Who's Fault is it?
+`git blame` <!-- .element: class="git-command" --> (annotate)
+
+(But if that doesn't help, `bisect`<!-- .element: class="git-command" --> to the rescue!)
+
+VSLIDE
+# git-bisect
+####  `binary search to find the commit that introduced a bug`
+
+1. <!-- .element: class="fragment" -->Find a commit that works as expected (e.g. `381147c`<!-- .element: class="git-text" -->)
+1. <!-- .element: class="fragment" -->`git bisect start`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git bisect bad`<!-- .element: class="git-command" --> (assuming the `HEAD`<!-- .element: class="git-text" --> is bad)
+1. <!-- .element: class="fragment" -->`git bisect good`<!-- .element: class="git-command" --> &nbsp;`381147c`<!-- .element: class="git-text" -->
+1. for each revision, execute one of: <!-- .element: class="fragment" -->
+  - `git bisect good`<!-- .element: class="git-command" -->
+  - `git bisect bad`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
+
+<!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
 <!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
 
 SLIDE
 # Aliases and Functions
 
 SLIDE
+# Aliases and Functions
+
+SLIDE
+# Commit Hooks
+## (To the Rescue)
+### `gitrdone/.git/hooks` <!-- .element: class="file" -->
+
+VSLIDE
+# Decorative Hooks
+
+VSLIDE
+# Safety Hooks
+
+VSLIDE
+# Notification Hooks
+
+
+
+
+SLIDE
+# Questions?
+------------
+### Resources
 # Commit Hooks
 ## (To the Rescue)
 ### `gitrdone/.git/hooks` <!-- .element: class="file" -->

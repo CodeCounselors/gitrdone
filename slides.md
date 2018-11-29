@@ -131,13 +131,13 @@ VSLIDE
 1. Setup upstream
 1. Fork Repo
 1. Setup origin to track fork
-1. Push branch
-1. Create pull request
 note:
 -
 
 VSLIDE
-# Publish/Review your work (push, pull request)
+# Submit your first Pull Request
+1. Push branch
+1. Create pull request
 note:
 -
 
@@ -164,13 +164,15 @@ SLIDE
 # When you mess up
 1. Forgot a file in commit? <!-- .element: class="fragment" -->
   - `git commit --amend` <!-- .element: class="git-command" -->
-1. Staged or committed something you shouldn't have? <!-- .element: class="fragment" -->
+1. Committed something you shouldn't have? <!-- .element: class="fragment" -->
   - `git reset --soft HEAD~` <!-- .element: class="git-command" -->
 1. Something broke but you have no idea when or where? <!-- .element: class="fragment" -->
   - `git bisect` <!-- .element: class="git-command" -->
 1. Accidentally wiped out changes you now need? <!-- .element: class="fragment" -->
   - `git reflog` <!-- .element: class="git-command" -->
     - (If you committed them, otherwise use a good IDE)
+note:
+- if something was staged, just use a GUI to unstage files or hunks (demo SourceTree)
 
 VSLIDE
 # Amend a commit

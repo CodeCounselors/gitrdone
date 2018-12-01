@@ -64,15 +64,22 @@
 					},
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					// Multiplexing + Speaker Notes
-					{ src: 'socket.io/socket.io.js', async: true },
-					{ src: 'plugin/multiplex/master.js', async: true },
-					{ src: 'plugin/notes-server/client.js', async: true }
+
+					// Multiplexing
+					{ src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+					{ src: 'plugin/multiplex/client.js', async: true },
+					// { src: 'plugin/multiplex/master.js', async: true },
+					
+					// Speaker Notes
+					// { src: 'plugin/notes-server/client.js', async: true } // Must comment for GH Pages
+
+
 				],
 
 				multiplex: {
-					id: 'ee48ad5761724a5a',
-					url: 'http://18.188.44.7:8000'
+					secret: null,
+					id: '0405db59c31f2e60',
+					url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
 				},
 			});
 		</script>

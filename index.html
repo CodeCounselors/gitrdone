@@ -66,8 +66,18 @@
 						}
 					},
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// Multiplexing + Speaker Notes
+					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: 'plugin/multiplex/master.js', async: true },
+					{ src: 'plugin/notes-server/client.js', async: true }
+				],
+
+				multiplex: {
+					// secret: '', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+					id: '6d6fcaed1b8ac4fa', // Obtained from socket.io server
+					url: 'http://18.225.37.179:8000' // Location of socket.io server
+				},
 			});
 		</script>
 	</body>

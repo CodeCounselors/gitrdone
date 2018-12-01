@@ -7,6 +7,10 @@
   color: orange;
 }
 
+.git-concept {
+  color: yellow;
+}
+
 .file {
   color: cornflowerblue;
 }
@@ -40,4 +44,12 @@ ol {
   height: 100%;
   vertical-align: middle !important;
   box-shadow: none !important;
+}
+
+.img-background {
+  background: white !important;
+}
+
+.img-src {
+  font-size: 20px !important;
 }

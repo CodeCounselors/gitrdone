@@ -25,9 +25,6 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Hello World</section>
-				<section data-markdown="contrib/cposc.md" data-separator="^SLIDE$" data-separator-vertical="^VSLIDE"></section>
-				<section>Goodbye World</section>
 				<section data-markdown="slides.md" data-separator="^SLIDE$" data-separator-vertical="^VSLIDE"></section>
 			</div>
 		</div>
@@ -66,8 +63,17 @@
 						}
 					},
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// Multiplexing + Speaker Notes
+					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: 'plugin/multiplex/master.js', async: true },
+					{ src: 'plugin/notes-server/client.js', async: true }
+				],
+
+				multiplex: {
+					id: 'ee48ad5761724a5a',
+					url: 'http://18.188.44.7:8000'
+				},
 			});
 		</script>
 	</body>

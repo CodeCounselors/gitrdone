@@ -51,7 +51,7 @@ VSLIDE
   - `git config --global user.name "John Doe"` <!-- .element: class="git-command" -->
   - `git config --global user.email "email@example.com"` <!-- .element: class="git-command" -->
   - `git config --global --list` <!-- .element: class="git-command" -->
-- Github Authentication (HTTPS or SSH)
+- GitHub Authentication (HTTPS or SSH)
   - https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git
 note:
 
@@ -65,8 +65,8 @@ note:
 -
 
 VSLIDE
-# Now we modify things
-1. Make a local change to `contrib/cposc.md` <!-- .element: class="file" -->
+# Apply Modifications
+1. Make a local change to `contrib/index.html` <!-- .element: class="file" -->
 1. <!-- .element: class="fragment" --> `git status` <!-- .element: class="git-command" -->
 1. <!-- .element: class="fragment" --> touch `new.txt` <!-- .element: class="file" -->
 1. <!-- .element: class="fragment" --> `git status` <!-- .element: class="git-command" -->
@@ -79,7 +79,7 @@ VSLIDE
   - <!-- .element: class="fragment" --> `Your branch is ahead of 'origin/<branch>' by 1 commit` <!-- .element: class="git-text" -->
 
 VSLIDE
-# What did we just do?
+# What Just Happened?
 <p class=stretch><img  src="https://devopscube.com/wp-content/uploads/2015/08/GIT-BASICS.png"></p>
 
 TODO: Make my own image reflecting this repo (hashes)
@@ -89,79 +89,103 @@ note:
 -workspace/index
 
 VSLIDE
-# One last thing
-1. <!-- .element: class="fragment" --> `git push`  <!-- .element: class="git-command" -->
-1. Oh no, what happened? <!-- .element: class="fragment" -->
-    - <!-- .element: class="fragment" --> `ERROR: Permission to <repo> denied to <user>.` <!-- .element: class="git-text" -->
+# One Last Thing
+
+`git push`  <!-- .element: class="fragment git-command" -->
+
+Oh no, what happened? <!-- .element: class="fragment" -->
+
+`ERROR: Permission to <repo> denied to <user>.` <!-- .element: class="fragment git-text" -->
 
 
 
 
 SLIDE
 # Working with Others
-1. Working with a team (cloned)
-2. Working on open source (forked)
+1. Working with a team `clone`<!-- .element: class="fragment git-command" -->
+2. Working on open source `fork`<!-- .element: class="fragment git-concept" -->
 note:
--
+- Clone a repo when you have write permission (e.g. to create branches) or only want to experiment with a read-only repo
+- Fork a repo that you do not have permissions to but you want to:
+  1. submit PRs
+  2. fork and maintain
 
 VSLIDE
-# Your own branch
+# Your Own Branch
 1. <!-- .element: class="fragment" --> `git checkout -b cposc-contrib` <!-- .element: class="git-command" -->
  - `-b` creates the branch named `cposc-contrib`
  - `checkout` switches to the new branch
 note:
-- Mention aliases here
-- Talk about -v, --v, --remote
+- Why create a branch? (vs working off master/develop)
+- Mention aliases here (run `gc -b`, `gb`, etc)
+- Talk about -v, --v, --remote flags for `branch`
 
 VSLIDE
-# A Tidy History (Interactive Rebase)
-1. make a few commits
-1. combine them into one
+# Tidy History
+### (Interactive `rebase`<!-- .element: class="git-command" -->)
+#### WARNING: Rewrites history <!-- .element: class="warning" -->
+1. Make a few commits
+1. `Squash`<!-- .element: class="git-concept" --> them (Why?)
+  - <!-- .element: class="fragment" -->Find the commit before your first change (e.g. `7d24aaf`<!-- .element: class="git-text" -->)
+  - <!-- .element: class="fragment" -->`git rebase -i`<!-- .element: class="git-command" --> &nbsp;`7d24aaf`<!-- .element: class="git-text" -->
 note:
--
+- Why squash commits?
+  - Keeps history clean if you are not doing a rebase when merging
+  - Less steps if you have to rebase your branch from origin/upstream
 
 VSLIDE
-# Contribute to Project
-1. Create pull request
+# Create Pull Request
+1. <!-- .element: class="fragment" -->`git push`<!-- .element: class="git-command" -->
+  -  <!-- .element: class="fragment" -->`git push --set-upstream origin cposc-contrib`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" --> Create `pull request`<!-- .element: class="git-concept" --> on GitHub
+  - GitHub will give your a url in the terminal
+  - Or just go to GitHub and create a pull request from a branch
 note:
 -
 
 VSLIDE
 # Contribute to Open Source
-1. Setup upstream
-1. Fork Repo
-1. Setup origin to track fork
+1. <!-- .element: class="fragment" -->Fork the repo on GitHub
+1. <!-- .element: class="fragment" -->`git remote rename origin upstream`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git remote add origin git@github.com:username/gitrdone.git`<!-- .element: class="git-command" -->
+1. <!-- .element: class="fragment" -->`git branch -u origin/master`<!-- .element: class="git-command" -->
+  - sets `master`<!-- .element: class="git-concept" --> to track `origin`<!-- .element: class="git-concept" -->, not `upstream` <!-- .element: class="git-concept" -->
 note:
--
+- run `git remote -v` before and after steps 2-4 to see what's going on
+- https://help.github.com/articles/syncing-a-fork/
 
 VSLIDE
-# Submit your first Pull Request
-1. Push branch
-1. Create pull request
-note:
--
-
+# Staying in Sync
+<p class=stretch><img class="img-background" src="img/rebase.png"></p>
+<div class="img-src">Source: https://hackernoon.com/mastering-git-why-rebase-is-amazing-a954485b128a</div>
 
 
 
 SLIDE
 # Every Day Git
 
-#### A Pro Git User is:
-#### <!-- .element: class="fragment blue" -->imperfect
-#### <!-- .element: class="fragment red" -->efficient
-#### <!-- .element: class="fragment green" -->careful
-#### <!-- .element: class="fragment orange" -->aware
-#### <!-- .element: class="fragment magenta" -->lazy
+### A Pro Git User is:
+### <!-- .element: class="fragment blue" -->efficient
+### <!-- .element: class="fragment red" -->lazy
+### <!-- .element: class="fragment green" -->imperfect
+### <!-- .element: class="fragment orange" -->careful
+### <!-- .element: class="fragment magenta" -->aware
 note:
-- imperfect: how to fix mistakes
-- efficient: use aliases and tools to cut down on redundant tasks (e.g. pushing new branch)
-- careful: read the documentation (e.g reset --hard, don't just copy/paste Stack Overflow)
-- aware: There is a lot to Git, know what it can do for you
-- lazy: hooks, .gitconfig (e.g. pager), etc.
+- **efficient**: use aliases and tools to cut down on redundant tasks (e.g. pushing new branch)
+- **lazy**: hooks, .gitconfig (e.g. pager), etc.
+- **imperfect**: how to fix mistakes
+- **careful**: read the documentation (e.g reset --hard, don't just copy/paste Stack Overflow)
+- **aware**: There is a lot to Git, know what it can do for you
 
-SLIDE
-# When you mess up
+VSLIDE
+# Commit Hooks
+### `gitrdone/.git/hooks` <!-- .element: class="file" -->
+1. Decorative Hooks - do something to the commit
+1. Safety Hooks - prevent bad commits
+1. Notification Hooks - do something after a commit
+
+VSLIDE
+# Mistakes Happen
 1. Forgot a file in commit? <!-- .element: class="fragment" -->
   - `git commit --amend` <!-- .element: class="git-command" -->
 1. Committed something you shouldn't have? <!-- .element: class="fragment" -->
@@ -175,10 +199,10 @@ note:
 - if something was staged, just use a GUI to unstage files or hunks (demo SourceTree)
 
 VSLIDE
-# Amend a commit
+# Amend a Commit
 #### WARNING: Rewrites history <!-- .element: class="warning" -->
 #### `git commit --amend` <!-- .element: class="git-command" -->
-1. Changing a commit message at `HEAD`<!-- .element: class="git-text" -->
+1. Changing a commit message at `HEAD`<!-- .element: class="git-concept" -->
 2. Adding more changes to the previous commit
 ----
 #### `git rebase --interactive` <!-- .element: class="git-command" -->
@@ -192,7 +216,7 @@ note:
 - "git undo" use case: stash on the branch instead of stash
 
 VSLIDE
-# Who's Fault is it?
+# Who's Fault?
 `git blame` <!-- .element: class="git-command" --> (annotate)
 
 (But if that doesn't help, `bisect`<!-- .element: class="git-command" --> to the rescue!)
@@ -230,47 +254,6 @@ VSLIDE
 1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
 
 <!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
-<!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
-
-SLIDE
-# Aliases and Functions
-
-SLIDE
-# Aliases and Functions
-
-SLIDE
-# Commit Hooks
-## (To the Rescue)
-### `gitrdone/.git/hooks` <!-- .element: class="file" -->
-
-VSLIDE
-# Decorative Hooks
-
-VSLIDE
-# Safety Hooks
-
-VSLIDE
-# Notification Hooks
-
-
-
-
-SLIDE
-# Questions?
-------------
-### Resources
-# Commit Hooks
-## (To the Rescue)
-### `gitrdone/.git/hooks` <!-- .element: class="file" -->
-
-VSLIDE
-# Decorative Hooks
-
-VSLIDE
-# Safety Hooks
-
-VSLIDE
-# Notification Hooks
 
 
 
@@ -285,7 +268,23 @@ SLIDE
 1. [Git Book (Official Docs)](https://book.git-scm.com/)
 1. [Pro Git (the book)](https://git-scm.com/book/en/v2)
 
+VSLIDE
+# Thank You
+
 
 SLIDE
+#### Legend
+- `git commands` <!-- .element: class="git-command" -->
+- `git concepts` <!-- .element: class="git-concept" -->
+- `git text` <!-- .element: class="git-text" -->
+
+
+VSLIDE
 # Didn't make the cut
 - `grep (log -S)`
+- `--force-with-lease`
+
+VSLIDE
+# Things learned
+While preparing this talk I learned:
+1. `core.sshCommand` to specify ssh key (`GIT_SSH_COMMAND`)

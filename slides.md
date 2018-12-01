@@ -164,22 +164,18 @@ VSLIDE
 SLIDE
 # Every Day Git
 
-#### A Pro Git User is:
-#### <!-- .element: class="fragment blue" -->efficient
-#### <!-- .element: class="fragment red" -->lazy
-#### <!-- .element: class="fragment green" -->careful
-#### <!-- .element: class="fragment orange" -->aware
-#### <!-- .element: class="fragment magenta" -->imperfect
+### A Pro Git User is:
+### <!-- .element: class="fragment blue" -->efficient
+### <!-- .element: class="fragment red" -->lazy
+### <!-- .element: class="fragment green" -->imperfect
+### <!-- .element: class="fragment orange" -->careful
+### <!-- .element: class="fragment magenta" -->aware
 note:
 - **efficient**: use aliases and tools to cut down on redundant tasks (e.g. pushing new branch)
 - **lazy**: hooks, .gitconfig (e.g. pager), etc.
+- **imperfect**: how to fix mistakes
 - **careful**: read the documentation (e.g reset --hard, don't just copy/paste Stack Overflow)
 - **aware**: There is a lot to Git, know what it can do for you
-- **imperfect**: how to fix mistakes
-
-VSLIDE
-# Aliases and Functions
-## Improve Efficiency
 
 VSLIDE
 # Commit Hooks
@@ -206,7 +202,7 @@ VSLIDE
 # Amend a Commit
 #### WARNING: Rewrites history <!-- .element: class="warning" -->
 #### `git commit --amend` <!-- .element: class="git-command" -->
-1. Changing a commit message at `HEAD`<!-- .element: class="git-text" -->
+1. Changing a commit message at `HEAD`<!-- .element: class="git-concept" -->
 2. Adding more changes to the previous commit
 ----
 #### `git rebase --interactive` <!-- .element: class="git-command" -->
@@ -253,8 +249,16 @@ SLIDE
 1. [Git Book (Official Docs)](https://book.git-scm.com/)
 1. [Pro Git (the book)](https://git-scm.com/book/en/v2)
 
-SLIDE
+VSLIDE
 # Thank You
+
+
+SLIDE
+#### Legend
+- `git commands` <!-- .element: class="git-command" -->
+- `git concepts` <!-- .element: class="git-concept" -->
+- `git text` <!-- .element: class="git-text" -->
+
 
 VSLIDE
 # Didn't make the cut

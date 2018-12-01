@@ -80,9 +80,7 @@ VSLIDE
 
 VSLIDE
 # What Just Happened?
-<p class=stretch><img  src="https://devopscube.com/wp-content/uploads/2015/08/GIT-BASICS.png"></p>
-
-TODO: Make my own image reflecting this repo (hashes)
+<p class=stretch><img class="img-background" src="https://devopscube.com/wp-content/uploads/2015/08/GIT-BASICS.png"></p>
 
 [Interactive Git Cheatsheet](https://ndpsoftware.com/git-cheatsheet.html)
 note:
@@ -178,11 +176,26 @@ note:
 - **aware**: There is a lot to Git, know what it can do for you
 
 VSLIDE
+# Aliases, Functions, etc
+
+### Git is complex
+### Aliases are simple
+
+### A good starting point
+([Oh My ZSH](https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet#git), [Oh My Bash](https://github.com/ohmybash/oh-my-bash))
+
+
+
+VSLIDE
 # Commit Hooks
 ### `gitrdone/.git/hooks` <!-- .element: class="file" -->
 1. Decorative Hooks - do something to the commit
 1. Safety Hooks - prevent bad commits
 1. Notification Hooks - do something after a commit
+
+[My Hooks](https://github.com/codecounselor/scripts/tree/master/git/hooks)
+
+[Hooks Documentation](https://github.com/git/git/blob/master/Documentation/githooks.txt)
 
 VSLIDE
 # Mistakes Happen
@@ -234,27 +247,31 @@ VSLIDE
   - `git bisect bad`<!-- .element: class="git-command" -->
 1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
 
-VSLIDE
-# Who's Fault is it?
-`git blame` <!-- .element: class="git-command" --> (annotate)
-
-(But if that doesn't help, `bisect`<!-- .element: class="git-command" --> to the rescue!)
-
-VSLIDE
-# git-bisect
-####  `binary search to find the commit that introduced a bug`
-
-1. <!-- .element: class="fragment" -->Find a commit that works as expected (e.g. `381147c`<!-- .element: class="git-text" -->)
-1. <!-- .element: class="fragment" -->`git bisect start`<!-- .element: class="git-command" -->
-1. <!-- .element: class="fragment" -->`git bisect bad`<!-- .element: class="git-command" --> (assuming the `HEAD`<!-- .element: class="git-text" --> is bad)
-1. <!-- .element: class="fragment" -->`git bisect good`<!-- .element: class="git-command" --> &nbsp;`381147c`<!-- .element: class="git-text" -->
-1. for each revision, execute one of: <!-- .element: class="fragment" -->
-  - `git bisect good`<!-- .element: class="git-command" -->
-  - `git bisect bad`<!-- .element: class="git-command" -->
-1. <!-- .element: class="fragment" -->`git bisect reset`<!-- .element: class="git-command" -->
-
 <!-- .element: class="fragment" -->Tip: You can provide a command to automate the good/bad check
+note:
+- Find a previous commit (checkout) that had contrib
+- Inject a bad change into the contrib history using rebase edit
 
+SLIDE
+# Rebase In Depth
+## Project History
+<p class=stretch><img class="img-background" src="img/beforeSquash.png"></p>
+
+VSLIDE
+## Let's Do A Little Cleanup
+<p class=stretch><img class="img-background" src="img/rebaseText.png"></p>
+
+VSLIDE
+## After Conflict Resolution
+<p class=stretch><img class="img-background" src="img/afterList.png"></p>
+
+VSLIDE
+## The Graph View
+<p class=stretch><img class="img-background" src="img/afterGraphBeforePush.png"></p>
+
+VSLIDE
+## After Force Pushing
+<p class=stretch><img class="img-background" src="img/afterPushGraph.png"></p>
 
 
 
@@ -267,6 +284,7 @@ SLIDE
 1. [Oh Shit Git](https://ohshitgit.com/)
 1. [Git Book (Official Docs)](https://book.git-scm.com/)
 1. [Pro Git (the book)](https://git-scm.com/book/en/v2)
+1. [My Git Aliases](https://github.com/codecounselor/scripts/blob/master/.bash_gitrc)
 
 VSLIDE
 # Thank You

@@ -156,7 +156,7 @@ VSLIDE
 # Staying in Sync
 <p class=stretch><img class="img-background" src="img/rebase.png"></p>
 <div class="img-src">Source: https://hackernoon.com/mastering-git-why-rebase-is-amazing-a954485b128a</div>
-
+Joy asks: "Hey will this help me keep my fork up to date so I don't have to destroy and refork like I do today?"
 
 
 SLIDE

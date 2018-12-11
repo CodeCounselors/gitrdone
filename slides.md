@@ -306,3 +306,7 @@ VSLIDE
 # Things learned
 While preparing this talk I learned:
 1. `core.sshCommand` to specify ssh key (`GIT_SSH_COMMAND`)
+
+VSLIDE
+# Merry Christmas!
+<p class=stretch><img class="img-background" src="img/Octocat-Christmas.jpg"></p>
